@@ -9,7 +9,7 @@ const SWPrecacheWebpackPlugin = require("sw-precache-webpack-plugin");
 const eslintFormatter = require("react-dev-utils/eslintFormatter");
 const ModuleScopePlugin = require("react-dev-utils/ModuleScopePlugin");
 const paths = require("./paths");
-const pxtorem = require("postcss-pxtorem");
+// const pxtorem = require("postcss-pxtorem");
 const getClientEnvironment = require("./env");
 
 const svgDirs = [
@@ -233,8 +233,8 @@ module.exports = {
                         "iOS >= 8",
                         "Android >= 4"
                       ]
-                    }),
-                    pxtorem({ rootValue: 100, propWhiteList: [] })
+                    })
+                    // pxtorem({ rootValue: 100, propWhiteList: [] })
                   ]
                 }
               },

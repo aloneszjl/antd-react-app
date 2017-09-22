@@ -1,3 +1,3 @@
 import createHistory from "history/createBrowserHistory";
 
-export default createHistory({ basename: "/personal" });
+export default createHistory({ basename: "/" });

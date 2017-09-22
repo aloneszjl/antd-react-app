@@ -9,7 +9,7 @@ const eslintFormatter = require("react-dev-utils/eslintFormatter");
 const ModuleScopePlugin = require("react-dev-utils/ModuleScopePlugin");
 const getClientEnvironment = require("./env");
 const paths = require("./paths");
-const pxtorem = require("postcss-pxtorem");
+// const pxtorem = require("postcss-pxtorem");
 
 const svgDirs = [
   require.resolve("antd-mobile").replace(/warn\.js$/, ""), // 1. 属于 antd-mobile 内置 svg 文件
@@ -150,8 +150,8 @@ module.exports = {
                     "iOS >= 8",
                     "Android >= 4"
                   ]
-                }),
-                pxtorem({ rootValue: 200, propWhiteList: [] })
+                })
+                // pxtorem({ rootValue: 100, propWhiteList: [] })
               ]
             }
           },
