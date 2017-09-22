@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { Provider } from "react-redux";
 import { persistStore } from "redux-persist";
-// import { ConnectedRouter } from "react-router-redux";
 import Routes from "./routes";
 import configureStore from "./configureStore";
 import { NAME as AUTH_NAME } from "./containers/auth/ducks";

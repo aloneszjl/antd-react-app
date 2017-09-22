@@ -1,8 +1,10 @@
-
-
 const path = require("path");
 const fs = require("fs");
 const url = require("url");
+// const lessToJs = require("less-vars-to-js");
+// const themer = lessToJs(
+//   fs.readFileSync(resolveApp("src/style/default.less"), "utf8")
+// );
 
 // Make sure any symlinks in the project folder are resolved:
 // https://github.com/facebookincubator/create-react-app/issues/637
@@ -52,5 +54,6 @@ module.exports = {
   testsSetup: resolveApp("src/setupTests.js"),
   appNodeModules: resolveApp("node_modules"),
   publicUrl: getPublicUrl(resolveApp("package.json")),
-  servedPath: getServedPath(resolveApp("package.json"))
+  servedPath: getServedPath(resolveApp("package.json")),
+  appThemer: require(resolveApp("src/style/default.js"))
 };
