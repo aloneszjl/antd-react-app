@@ -1,63 +1,75 @@
 import React, { Component } from "react";
 import { TabBar } from "antd-mobile";
 import { connect } from "react-redux";
-import { push } from "react-router-redux";
+import { replace } from "react-router-redux";
+import DocumentTitle from "react-document-title";
 import { Icon } from "../../components";
 import theme from "../../style/theme";
 import { Home } from "../home";
 import { Profile } from "../profile";
+import { TabTitle } from "./constants";
 import "../../index.less";
 
+const tabs = [
+  {
+    icon: "home",
+    title: "home",
+    children: Home
+  },
+  {
+    icon: "profile",
+    title: "profile",
+    children: Profile
+  }
+];
+
+type Props = {
+  match: Object,
+  replace: Function
+};
+
+type State = {
+  hidden: boolean
+};
+
 class TabPage extends Component {
+  props: Props;
+  state: State;
   constructor(props) {
     super(props);
     this.state = {
-      selectedTab: "redTab",
       hidden: false
     };
   }
 
   render() {
+    const { match: { params }, replace } = this.props;
     return (
-      <TabBar
-        unselectedTintColor={theme.unselectedTintColor}
-        tintColor={theme.brandPrimary}
-        barTintColor="white"
-        hidden={this.state.hidden}
-      >
-        <TabBar.Item
-          icon={<Icon icon="home-o" />}
-          selectedIcon={<Icon icon="home" primary />}
-          title="首页"
-          key="首页"
-          selected={this.state.selectedTab === "redTab"}
-          onPress={() => {
-            this.setState({
-              selectedTab: "redTab"
-            });
-          }}
+      <DocumentTitle title={TabTitle[params.item]}>
+        <TabBar
+          unselectedTintColor={theme.unselectedTintColor}
+          tintColor={theme.brandPrimary}
+          barTintColor="white"
+          hidden={this.state.hidden}
         >
-          <Home />
-        </TabBar.Item>
-        <TabBar.Item
-          icon={<Icon icon="profile-o" />}
-          selectedIcon={<Icon icon="profile" primary />}
-          title="我"
-          key="我"
-          selected={this.state.selectedTab === "greenTab"}
-          onPress={() => {
-            this.setState({
-              selectedTab: "greenTab"
-            });
-          }}
-        >
-          <Profile />
-        </TabBar.Item>
-      </TabBar>
+          {tabs.map(item => (
+            <TabBar.Item
+              icon={<Icon icon={`${item.icon}-o`} />}
+              selectedIcon={<Icon icon={item.icon} primary />}
+              title={TabTitle[item.title]}
+              key={item.title}
+              selected={params.item === item.title}
+              onPress={() => replace(`/tab/${item.title}`)}
+            >
+              <item.children {...this.props} />
+            </TabBar.Item>
+          ))}
+        </TabBar>
+      </DocumentTitle>
     );
   }
 }
 
 export default connect(null, {
-  push
+  replace
 })(TabPage);

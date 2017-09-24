@@ -1,3 +1,9 @@
 import React from "react";
 
-export default () => <div>profile</div>;
+const profile = () => (
+  <div className="profile">
+    <h3>profile</h3>
+  </div>
+);
+
+export default profile;

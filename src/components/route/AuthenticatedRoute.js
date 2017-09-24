@@ -18,11 +18,8 @@ const AuthenticatedRoute = ({ component: C, isAuthenticated, ...rest }) => (
   />
 );
 
-const mapStateToProps = state => {
-  console.log(isAuthenticated(state));
-  return {
-    isAuthenticated: isAuthenticated(state)
-  };
-};
+const mapStateToProps = state => ({
+  isAuthenticated: isAuthenticated(state)
+});
 
 export default connect(mapStateToProps)(AuthenticatedRoute);

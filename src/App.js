@@ -6,7 +6,6 @@ import configureStore from "./configureStore";
 import { NAME as AUTH_NAME } from "./containers/auth/ducks";
 import history from "./routes/history";
 import ConnectedRouter from "./routes/ConnectedRouter";
-import "./App.css";
 
 const store = configureStore();
 
