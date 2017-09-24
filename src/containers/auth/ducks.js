@@ -1,5 +1,6 @@
 import { combineReducers } from "redux";
 import { createAction, createRequestEpicDucks } from "redux-observable-utils";
+import get from "lodash/get";
 import * as api from "./api";
 
 export const NAME = "AUTH";
@@ -28,6 +29,13 @@ export const { ducks: account, epic: accountEpic } = createRequestEpicDucks({
     cache: false
   }
 });
+
+export const getAccount = state => account.selector(state);
+
+export const getSelectedAccount = state =>
+  get(getAccount(state), "payload.selectedAccount");
+
+export const isAuthenticated = state => !!getSelectedAccount(state);
 
 export default combineReducers({
   token,

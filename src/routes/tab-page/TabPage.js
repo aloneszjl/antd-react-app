@@ -1,10 +1,12 @@
 import React, { Component } from "react";
-import { TabBar, NavBar, SearchBar } from "antd-mobile";
+import { TabBar } from "antd-mobile";
 import { connect } from "react-redux";
 import { push } from "react-router-redux";
-import { Icon, Container } from "../../components";
+import { Icon } from "../../components";
 import theme from "../../style/theme";
-import "../../index.css";
+import { Home } from "../home";
+import { Profile } from "../profile";
+import "../../index.less";
 
 class TabPage extends Component {
   constructor(props) {
@@ -16,7 +18,6 @@ class TabPage extends Component {
   }
 
   render() {
-    console.log(this.props);
     return (
       <TabBar
         unselectedTintColor={theme.unselectedTintColor}
@@ -25,23 +26,24 @@ class TabPage extends Component {
         hidden={this.state.hidden}
       >
         <TabBar.Item
-          icon={<Icon icon="profile" />}
-          selectedIcon={<Icon icon="profile" primary />}
-          title="口碑"
-          key="口碑"
+          icon={<Icon icon="home-o" />}
+          selectedIcon={<Icon icon="home" primary />}
+          title="首页"
+          key="首页"
           selected={this.state.selectedTab === "redTab"}
           onPress={() => {
             this.setState({
               selectedTab: "redTab"
             });
           }}
-          children="口碑"
-        />
+        >
+          <Home />
+        </TabBar.Item>
         <TabBar.Item
           icon={<Icon icon="profile-o" />}
-          selectedIcon={<Icon icon="profile-o" primary />}
-          title="朋友"
-          key="朋友"
+          selectedIcon={<Icon icon="profile" primary />}
+          title="我"
+          key="我"
           selected={this.state.selectedTab === "greenTab"}
           onPress={() => {
             this.setState({
@@ -49,7 +51,7 @@ class TabPage extends Component {
             });
           }}
         >
-          <Container>朋友</Container>
+          <Profile />
         </TabBar.Item>
       </TabBar>
     );

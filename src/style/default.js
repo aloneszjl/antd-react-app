@@ -1,5 +1,5 @@
 // compile to webpackConfig less modifyVars
 module.exports = {
-  "brand-primary": "#00bcd4",
-  "brand-primary-tap": "#1fc8de"
+  "brand-primary": "#00b38a",
+  "brand-primary-tap": "#06d0a1"
 };
