@@ -28,13 +28,8 @@ type Props = {
   replace: Function
 };
 
-type State = {
-  hidden: boolean
-};
-
 class TabPage extends Component {
   props: Props;
-  state: State;
   constructor(props) {
     super(props);
     this.state = {
@@ -42,8 +37,15 @@ class TabPage extends Component {
     };
   }
 
-  render() {
+  onPress = title => {
     const { match: { params }, replace } = this.props;
+    if (title !== params.item) {
+      replace(`/tab/${title}`);
+    }
+  };
+
+  render() {
+    const { match: { params } } = this.props;
     return (
       <DocumentTitle title={TabTitle[params.item]}>
         <TabBar
@@ -59,7 +61,7 @@ class TabPage extends Component {
               title={TabTitle[item.title]}
               key={item.title}
               selected={params.item === item.title}
-              onPress={() => replace(`/tab/${item.title}`)}
+              onPress={() => this.onPress(item.title)}
             >
               <item.children {...this.props} />
             </TabBar.Item>

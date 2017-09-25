@@ -1,9 +1,16 @@
 import React from "react";
+import styled from "styled-components";
+import { FOOTER_HEIGHT, HEADER_HEIGHT } from "../style/theme";
 
 type Props = {
-  test?: boolean
+  hasFooter?: boolean,
+  hasHeader?: boolean
 };
 
-const Container = (props: Props) => <div>{props.children}</div>;
+const Div = styled.div`
+  margin-top: ${props => (props.hasHeader ? `${HEADER_HEIGHT}px` : "0")};
+  margin-bottom: ${props => (props.hasFooter ? `${FOOTER_HEIGHT}px` : "0")};
+`;
 
+const Container = (props: Props) => <Div {...props} />;
 export default Container;

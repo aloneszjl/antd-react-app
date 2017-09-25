@@ -4,6 +4,7 @@ import UnauthenticatedRoute from "./route/UnauthenticatedRoute";
 import Container from "./Container";
 import Icon from "./Icon";
 import PageNotFound from "./PageNotFound";
+import Header from "./Header";
 
 export {
   AuthenticatedRoute,
@@ -11,5 +12,6 @@ export {
   AppliedRoute,
   PageNotFound,
   Container,
-  Icon
+  Icon,
+  Header
 };

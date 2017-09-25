@@ -1,10 +1,12 @@
 import React from "react";
 import DocumentTitle from "react-document-title";
+import { Header, Container } from "../../components";
 
 const Login = () => (
   <DocumentTitle title="登录">
     <div className="Login">
-      <h3>Login</h3>
+      <Header mode="dark">登录</Header>
+      <Container hasHeader>你好</Container>
     </div>
   </DocumentTitle>
 );
