@@ -50,7 +50,7 @@ class TabPage extends Component {
       <DocumentTitle title={TabTitle[params.item]}>
         <TabBar
           unselectedTintColor={theme.unselectedTintColor}
-          tintColor={theme.brandPrimary}
+          tintColor={theme.primary}
           barTintColor="white"
           hidden={this.state.hidden}
         >

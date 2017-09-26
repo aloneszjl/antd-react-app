@@ -12,7 +12,7 @@ const paths = require("./paths");
 // const pxtorem = require("postcss-pxtorem");
 
 const svgDirs = [
-  require.resolve("antd-mobile").replace(/warn\.js$/, ""), // 1. 属于 antd-mobile 内置 svg 文件
+  // require.resolve("antd-mobile").replace(/warn\.js$/, ""), // 1. 属于 antd-mobile 内置 svg 文件
   paths.svgSrc // 2. 自己私人的 svg 存放目录
 ];
 

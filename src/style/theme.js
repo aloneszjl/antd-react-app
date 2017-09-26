@@ -1,21 +1,20 @@
-import defaultStyle from "./default";
-import camelCase from "lodash/camelCase";
-import reduce from "lodash/reduce";
+const base = 1;
+const hd = size => `${size * base}px`;
 
-export const FOOTER_HEIGHT = 50;
-export const HEADER_HEIGHT = 45;
-
-const styles = {
-  unselectedTintColor: "#949494"
+export default {
+  hd,
+  primary: "#e03c3c",
+  unselectedTintColor: "#949494",
+  defaultIconTintColor: "#949494",
+  footerHeiht: hd(50),
+  headerHeight: hd(45),
+  size: {
+    icon: {
+      xxs: hd(15),
+      xs: hd(18),
+      sm: hd(21),
+      md: hd(25),
+      lg: hd(36)
+    }
+  }
 };
-
-const theme = reduce(
-  defaultStyle,
-  (theme, value, key) => {
-    theme[camelCase(key)] = value;
-    return theme;
-  },
-  styles
-);
-
-export default theme;

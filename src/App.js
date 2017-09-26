@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { Provider } from "react-redux";
 import { persistStore } from "redux-persist";
+import { ThemeProvider } from "styled-components";
+import theme from "./style/theme";
 import Routes from "./routes";
 import configureStore from "./configureStore";
 import { NAME as AUTH_NAME } from "./containers/auth/ducks";
@@ -33,11 +35,13 @@ class App extends Component {
     }
     return (
       <Provider store={store}>
-        <ConnectedRouter history={history}>
-          <div>
-            <Routes />
-          </div>
-        </ConnectedRouter>
+        <ThemeProvider theme={theme}>
+          <ConnectedRouter history={history}>
+            <div>
+              <Routes />
+            </div>
+          </ConnectedRouter>
+        </ThemeProvider>
       </Provider>
     );
   }

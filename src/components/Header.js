@@ -1,7 +1,14 @@
 import React, { Component } from "react";
 import { NavBar } from "antd-mobile";
+import Icon from "./Icon";
+import styled from "styled-components";
 import { connect } from "react-redux";
 import { goBack } from "react-router-redux";
+
+const BackIcon = Icon.extend`
+  margin-top: ${({ theme }) => theme.hd(5)};
+  fill: ${({ mode, theme }) => (mode === "dark" ? "white" : "black")};
+`;
 
 type Props = {
   onLeftClick?: Function,
@@ -10,6 +17,10 @@ type Props = {
 
 class Header extends Component {
   props: Props;
+
+  static defaultProps = {
+    mode: "dark"
+  };
 
   onLeftClick = (...args) => {
     const { onLeftClick, goBack } = this.props;
@@ -20,9 +31,22 @@ class Header extends Component {
   };
 
   render() {
-    const { goBack, ...rest } = this.props;
-    return <NavBar mode="dark" {...rest} onLeftClick={this.onLeftClick} />;
+    const { goBack, mode, ...rest } = this.props;
+    return (
+      <NavBar
+        mode={mode}
+        iconName={false}
+        leftContent={<BackIcon mode={mode} icon="left" />}
+        {...rest}
+        onLeftClick={this.onLeftClick}
+      />
+    );
   }
 }
 
-export default connect(null, { goBack })(Header);
+const StyledHeader = styled(Header)`
+  background-color: ${({ mode, theme }) =>
+    mode === "light" ? "white" : `${theme.primary} !important`};
+`;
+
+export default connect(null, { goBack })(StyledHeader);

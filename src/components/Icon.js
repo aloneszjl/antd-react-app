@@ -1,53 +1,30 @@
 import React from "react";
-import { Icon } from "antd-mobile";
-import theme from "../style/theme";
+import styled from "styled-components";
 import Svg from "../svg";
 
 type Props = {
   primary?: boolean,
-  style?: Object,
   icon: string,
-  size?: string,
-  className?: string
+  size: string | number
 };
 
-const CustomIcon = ({
-  icon,
-  primary,
-  className = "",
-  size = "md",
-  style,
-  ...rest
-}: Props) => {
-  let fill = theme.unselectedTintColor;
-  if (primary) {
-    fill = theme.brandPrimary;
-  }
+const Icon = ({ icon, primary, ...rest }: Props) => (
+  <svg {...rest}>
+    <use xlinkHref={Svg[icon]} />
+  </svg>
+);
 
-  if (!Svg[icon]) {
-    return (
-      <Icon
-        style={{
-          fill,
-          ...style
-        }}
-        className={className}
-        type={icon}
-        {...rest}
-      />
-    );
-  }
+const StyledIcon = styled(Icon)`
+  fill: ${({ primary, theme }) =>
+    primary ? theme.primary : theme.defaultIconTintColor};
+  width: ${({ size, theme }) =>
+    theme.size.icon[size] ? theme.size.icon[size] : theme.hd(size)};
+  height: ${({ size, theme }) =>
+    theme.size.icon[size] ? theme.size.icon[size] : theme.hd(size)};
+`;
 
-  return (
-    <svg
-      className={`am-icon am-icon-${Svg[icon].substr(
-        1
-      )} am-icon-${size} ${className}`}
-      {...rest}
-    >
-      <use xlinkHref={Svg[icon]} />
-    </svg>
-  );
+StyledIcon.defaultProps = {
+  size: "md"
 };
 
-export default CustomIcon;
+export default StyledIcon;
