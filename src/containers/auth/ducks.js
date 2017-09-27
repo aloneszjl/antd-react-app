@@ -35,7 +35,7 @@ export const getAccount = state => account.selector(state);
 export const getSelectedAccount = state =>
   get(getAccount(state), "payload.selectedAccount");
 
-export const isAuthenticated = state => !!getSelectedAccount(state);
+export const isAuthenticated = state => !getSelectedAccount(state);
 
 export default combineReducers({
   token,

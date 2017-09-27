@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import { replace } from "react-router-redux";
 import DocumentTitle from "react-document-title";
 import { Icon } from "../../components";
-import theme from "../../style/theme";
+import { getTheme } from "../../containers/theme/ducks";
 import { Home } from "../home";
 import { Profile } from "../profile";
 import { TabTitle } from "./constants";
@@ -25,7 +25,8 @@ const tabs = [
 
 type Props = {
   match: Object,
-  replace: Function
+  replace: Function,
+  theme: Object
 };
 
 class TabPage extends Component {
@@ -45,7 +46,7 @@ class TabPage extends Component {
   };
 
   render() {
-    const { match: { params } } = this.props;
+    const { match: { params }, theme } = this.props;
     return (
       <DocumentTitle title={TabTitle[params.item]}>
         <TabBar
@@ -72,6 +73,11 @@ class TabPage extends Component {
   }
 }
 
-export default connect(null, {
-  replace
-})(TabPage);
+export default connect(
+  state => ({
+    theme: getTheme(state)
+  }),
+  {
+    replace
+  }
+)(TabPage);

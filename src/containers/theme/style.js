@@ -1,8 +1,10 @@
+export const defaultMode = "red";
 const base = 1;
 const hd = size => `${size * base}px`;
 
 export default {
   hd,
+  mode: defaultMode,
   primary: "#e03c3c",
   unselectedTintColor: "#949494",
   defaultIconTintColor: "#949494",
