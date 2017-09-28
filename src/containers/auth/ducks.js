@@ -1,9 +1,9 @@
-import { combineReducers } from "redux";
-import { createAction, createRequestEpicDucks } from "redux-observable-utils";
-import get from "lodash/get";
-import * as api from "./api";
+import { combineReducers } from 'redux';
+import { createAction, createRequestEpicDucks } from 'redux-observable-utils';
+import get from 'lodash/get';
+import * as api from './api';
 
-export const NAME = "AUTH";
+export const NAME = 'AUTH';
 
 export const SET_TOKEN = `${NAME}/SET_TOKEN`;
 export const REMOVE_TOKEN = `${NAME}/REMOVE_TOKEN`;
@@ -23,21 +23,21 @@ const token = (state = null, action) => {
 
 export const { ducks: account, epic: accountEpic } = createRequestEpicDucks({
   moduleName: NAME,
-  reducerName: "ACCOUNT",
+  reducerName: 'ACCOUNT',
   api: api.getSelectedAccount,
   options: {
-    cache: false
-  }
+    cache: false,
+  },
 });
 
 export const getAccount = state => account.selector(state);
 
 export const getSelectedAccount = state =>
-  get(getAccount(state), "payload.selectedAccount");
+  get(getAccount(state), 'payload.selectedAccount');
 
-export const isAuthenticated = state => !getSelectedAccount(state);
+export const isAuthenticated = state => !!getSelectedAccount(state);
 
 export default combineReducers({
   token,
-  [account.reducerName]: account.reducer
+  [account.reducerName]: account.reducer,
 });

@@ -1,6 +1,6 @@
-import React from "react";
-import DocumentTitle from "react-document-title";
-import { Header, Container } from "../../components";
+import React from 'react';
+import DocumentTitle from 'react-document-title';
+import { Header, Container } from '../../components';
 
 const Login = () => (
   <DocumentTitle title="登录">

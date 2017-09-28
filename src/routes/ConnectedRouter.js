@@ -1,28 +1,27 @@
-import React, { Component } from "react";
-import PropTypes from "prop-types";
-import { Router } from "react-router-dom";
-import { connect } from "react-redux";
-import { ThemeProvider } from "styled-components";
-import { getTheme } from "../containers/theme/ducks";
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import { Router } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { ThemeProvider } from 'styled-components';
+import { getTheme } from '../containers/theme/ducks';
 
-export const LOCATION_CHANGE = "@@router/LOCATION_CHANGE";
+export const LOCATION_CHANGE = '@@router/LOCATION_CHANGE';
 
 class ConnectedRouter extends Component {
   static propTypes = {
     store: PropTypes.object,
     history: PropTypes.object,
-    children: PropTypes.node,
-    theme: PropTypes.object
+    theme: PropTypes.object,
   };
 
   static contextTypes = {
-    store: PropTypes.object
+    store: PropTypes.object,
   };
 
   handleLocationChange = location => {
     this.store.dispatch({
       type: LOCATION_CHANGE,
-      payload: location
+      payload: location,
     });
   };
 

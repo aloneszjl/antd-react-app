@@ -1,9 +1,9 @@
-import React from "react";
-import { Switch, Redirect, Route } from "react-router-dom";
-import { AuthenticatedRoute, AppliedRoute, PageNotFound } from "../components";
+import React from 'react';
+import { Switch, Redirect, Route } from 'react-router-dom';
+import { AuthenticatedRoute, AppliedRoute, PageNotFound } from '../components';
 
-import { TabPage } from "./tab-page";
-import { Login } from "./login";
+import { TabPage } from './tab-page';
+import { Login } from './login';
 
 export default () => (
   <Switch>

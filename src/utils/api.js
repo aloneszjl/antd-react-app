@@ -1,16 +1,16 @@
-import axios from "axios";
-import queryString from "query-string";
+import axios from 'axios';
+import queryString from 'query-string';
 // import get from "lodash/get";
 // import forOwn from "lodash/forOwn";
 // import isObject from "lodash/isObject";
 // import history from "../routes/history";
-import config from "../config";
+import config from '../config';
 // import { getAccessToken } from "../containers/auth/ducks";
 // import toast from "./toast";
 
 let store;
 
-export const configureApi = _store => {
+export const configureApi = (_store) => {
   store = _store;
   return store;
 };
@@ -44,7 +44,7 @@ const paramsSerializer = params => queryString.stringify(params); // param=value
 const api = axios.create({
   baseURL: config.DOMAIN,
   paramsSerializer,
-  withCredentials: true
+  withCredentials: true,
 });
 
 // const interceptor = config => {

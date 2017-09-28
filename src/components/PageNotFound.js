@@ -1,6 +1,6 @@
-import React from "react";
+import React from 'react';
 
-const PageNotFound = ({ location }) => (
+const PageNotFound = ({ location }: { location: Object }) => (
   <div>
     <h3>
       No match for <code>{location.pathname}</code>

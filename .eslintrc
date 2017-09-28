@@ -1,7 +1,26 @@
 {
-  "extends": "react-app",
+  "extends": ["react-app", "airbnb"],
   "parser": "babel-eslint",
   "rules": {
-    "import/no-unresolved": "error"
+    "array-callback-return": "off",
+    "new-cap": "off",
+    "max-len": "off",
+    "no-class-assign": "off",
+    "import/prefer-default-export": "off",
+    "no-shadow": "off",
+    "class-methods-use-this": "off",
+    "global-require": "off",
+    "arrow-parens": "off",
+    "no-empty": "off",
+    "consistent-return": "off",
+    "react/no-unused-prop-types": "warn",
+    "react/sort-comp": "off",
+    "react/prefer-stateless-function": "off",
+    "react/jsx-filename-extension": "off",
+    "no-use-before-define": "off",
+    "no-param-reassign": "off",
+    "import/extensions": "off",
+    "react/require-default-props": "off",
+    "react/forbid-prop-types": "off"
   }
 }

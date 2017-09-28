@@ -1,12 +1,12 @@
-import { combineEpics } from "redux-observable";
-import querystring from "query-string";
+import { combineEpics } from 'redux-observable';
+import querystring from 'query-string';
 import {
   getPrimaryColorDucks,
   getPrimaryColorEpic,
   getTheme,
-  setTheme
-} from "./ducks";
-import { LOCATION_CHANGE } from "../../routes/ConnectedRouter";
+  setTheme,
+} from './ducks';
+import { LOCATION_CHANGE } from '../../routes/ConnectedRouter';
 
 const locationChangeEpic = (action$, store) =>
   action$
@@ -28,11 +28,11 @@ const getPrimaryColorSuccessEpic = action$ =>
   action$
     .ofType(getPrimaryColorDucks.requestTypes.SUCCESS)
     .map(action =>
-      setTheme({ mode: action.params.mode, primary: action.payload })
+      setTheme({ mode: action.params.mode, primary: action.payload }),
     );
 
 export default combineEpics(
   getPrimaryColorEpic,
   locationChangeEpic,
-  getPrimaryColorSuccessEpic
+  getPrimaryColorSuccessEpic,
 );

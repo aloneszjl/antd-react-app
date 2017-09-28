@@ -1,11 +1,11 @@
-import React, { Component } from "react";
-import { Provider } from "react-redux";
-import { persistStore } from "redux-persist";
-import Routes from "./routes";
-import configureStore from "./configureStore";
-import { NAME as AUTH_NAME } from "./containers/auth/ducks";
-import history from "./routes/history";
-import ConnectedRouter from "./routes/ConnectedRouter";
+import React, { Component } from 'react';
+import { Provider } from 'react-redux';
+import { persistStore } from 'redux-persist';
+import Routes from './routes';
+import configureStore from './configureStore';
+import { NAME as AUTH_NAME } from './containers/auth/ducks';
+import history from './routes/history';
+import ConnectedRouter from './routes/ConnectedRouter';
 
 const store = configureStore();
 
@@ -19,11 +19,11 @@ class App extends Component {
     persistStore(
       store,
       {
-        whitelist: [AUTH_NAME]
+        whitelist: [AUTH_NAME],
       },
       () => {
         this.setState({ rehydrated: true });
-      }
+      },
     );
   }
 

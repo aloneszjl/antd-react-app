@@ -1,10 +1,10 @@
-import AuthenticatedRoute from "./route/AuthenticatedRoute";
-import AppliedRoute from "./route/AppliedRoute";
-import UnauthenticatedRoute from "./route/UnauthenticatedRoute";
-import Container from "./Container";
-import Icon from "./Icon";
-import PageNotFound from "./PageNotFound";
-import Header from "./Header";
+import AuthenticatedRoute from './route/AuthenticatedRoute';
+import AppliedRoute from './route/AppliedRoute';
+import UnauthenticatedRoute from './route/UnauthenticatedRoute';
+import Container from './Container';
+import Icon from './Icon';
+import PageNotFound from './PageNotFound';
+import Header from './Header';
 
 export {
   AuthenticatedRoute,
@@ -13,5 +13,5 @@ export {
   PageNotFound,
   Container,
   Icon,
-  Header
+  Header,
 };

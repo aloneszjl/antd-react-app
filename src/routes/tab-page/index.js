@@ -1,3 +1,3 @@
-import TabPage from "./TabPage.js";
+import TabPage from './TabPage.js';
 
 export { TabPage };
