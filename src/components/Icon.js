@@ -14,6 +14,10 @@ const Icon = ({ icon, primary, ...rest }: Props) => (
   </svg>
 );
 
+Icon.defaultProps = {
+  primary: false,
+};
+
 const StyledIcon = styled(Icon)`
   fill: ${({ primary, theme }) =>
     (primary ? theme.primary : theme.defaultIconTintColor)};

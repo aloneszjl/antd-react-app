@@ -15,4 +15,10 @@ const Div = styled.div`
 `;
 
 const Footer = (props: Props) => <Div {...props} />;
+
+Footer.defaultProps = {
+  primary: false,
+  fixed: false,
+};
+
 export default Footer;

@@ -1,33 +1,26 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 import { Router } from 'react-router-dom';
-import { connect } from 'react-redux';
-import { ThemeProvider } from 'styled-components';
-import { getTheme } from '../containers/theme/ducks';
 
 export const LOCATION_CHANGE = '@@router/LOCATION_CHANGE';
 
-class ConnectedRouter extends Component {
-  static propTypes = {
-    store: PropTypes.object,
-    history: PropTypes.object,
-    theme: PropTypes.object,
-  };
+type Props = {
+  store?: Object,
+  history?: Object,
+};
 
-  static contextTypes = {
-    store: PropTypes.object,
-  };
+class ConnectedRouter extends Component {
+  props: Props;
 
   handleLocationChange = location => {
-    this.store.dispatch({
+    const { store } = this.props;
+    store.dispatch({
       type: LOCATION_CHANGE,
       payload: location,
     });
   };
 
   componentWillMount() {
-    const { store: propsStore, history } = this.props;
-    this.store = propsStore || this.context.store;
+    const { history } = this.props;
     this.handleLocationChange(history.location);
   }
 
@@ -41,13 +34,8 @@ class ConnectedRouter extends Component {
   }
 
   render() {
-    const { theme } = this.props;
-    return (
-      <ThemeProvider theme={theme}>
-        <Router {...this.props} />
-      </ThemeProvider>
-    );
+    return <Router {...this.props} />;
   }
 }
 
-export default connect(state => ({ theme: getTheme(state) }))(ConnectedRouter);
+export default ConnectedRouter;

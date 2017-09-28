@@ -5,7 +5,7 @@ import Routes from './routes';
 import configureStore from './configureStore';
 import { NAME as AUTH_NAME } from './containers/auth/ducks';
 import history from './routes/history';
-import ConnectedRouter from './routes/ConnectedRouter';
+import ConnectedTheme from './routes/ConnectedTheme';
 
 const store = configureStore();
 
@@ -33,11 +33,11 @@ class App extends Component {
     }
     return (
       <Provider store={store}>
-        <ConnectedRouter history={history}>
+        <ConnectedTheme store={store} history={history}>
           <div>
             <Routes />
           </div>
-        </ConnectedRouter>
+        </ConnectedTheme>
       </Provider>
     );
   }

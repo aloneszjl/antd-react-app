@@ -2,8 +2,8 @@ import React from 'react';
 import styled from 'styled-components';
 
 type Props = {
-  hasFooter?: boolean,
-  hasHeader?: boolean,
+  hasFooter: boolean,
+  hasHeader: boolean,
 };
 
 const Div = styled.div`
@@ -14,4 +14,10 @@ const Div = styled.div`
 `;
 
 const Container = (props: Props) => <Div {...props} />;
+
+Container.defaultProps = {
+  hasFooter: false,
+  hasHeader: false,
+};
+
 export default Container;

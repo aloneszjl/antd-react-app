@@ -45,6 +45,10 @@ class Header extends Component {
   }
 }
 
+Header.defaultProps = {
+  onLeftClick: () => {},
+};
+
 const StyledHeader = styled(Header)`
   background-color: ${({ mode, theme }) =>
     (mode === 'light' ? 'white' : `${theme.primary} !important`)};
