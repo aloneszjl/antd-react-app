@@ -6,6 +6,7 @@ export default {
   hd,
   mode: defaultMode,
   primary: '#e03c3c',
+  defaultTextColor: '#000',
   unselectedTintColor: '#949494',
   defaultIconTintColor: '#949494',
   footerHeiht: hd(50),

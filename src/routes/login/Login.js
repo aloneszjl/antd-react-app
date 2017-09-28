@@ -5,7 +5,7 @@ import { Header, Container } from '../../components';
 const Login = () => (
   <DocumentTitle title="登录">
     <div className="Login">
-      <Header mode="dark">登录</Header>
+      <Header>登录</Header>
       <Container hasHeader>你好</Container>
     </div>
   </DocumentTitle>

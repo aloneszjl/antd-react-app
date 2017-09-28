@@ -4,8 +4,8 @@ import { Router } from 'react-router-dom';
 export const LOCATION_CHANGE = '@@router/LOCATION_CHANGE';
 
 type Props = {
-  store?: Object,
-  history?: Object,
+  store: Object,
+  history: Object,
 };
 
 class ConnectedRouter extends Component {
